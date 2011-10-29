@@ -5,7 +5,7 @@ class BlogCommentsController < ApplicationController
 	
 	layout(BlogKit.instance.settings['layout'] || 'application')
 	
-	before_filter :require_user, :only => [:destroy]
+	before_filter :authenticate_user!, :only => [:destroy]
 	before_filter :require_admin, :only => [:destroy]
 	before_filter :require_blog_post
 

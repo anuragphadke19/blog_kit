@@ -5,7 +5,7 @@ class BlogPostsController < ApplicationController
 	
 	layout :choose_layout
 	
-	before_filter :require_user, :except => [:index, :show, :tag]
+	before_filter :authenticate_user!, :except => [:index, :show, :tag]
 	before_filter :require_admin, :except => [:index, :show, :tag]
 	before_filter :setup_image_template, :only => [:new, :edit, :create, :update]
 
