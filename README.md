@@ -22,6 +22,11 @@ BlogKit has the following features.
 + Image upload (via paperclip, or something that adds has_attached_file to models)
     + S3 Image support
 
+Additionally:
+
++ Use Kaminari instead of will_paginate for pagination
++ Use Devise for authentication (use authenticate_user! instead of require_user)
+
 
 Coming Soon:
 
