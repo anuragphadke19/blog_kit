@@ -11,7 +11,7 @@ class BlogPostsController < ApplicationController
 
 	
   def index
-    @blog_posts = BlogPost.published.page(params[:page])#, :per_page => 5, :order => 'published_at DESC')
+    @blog_posts = BlogPost.published.page(params[:page]).per(5).order('published_at DESC')#, :per_page => 5, :order => 'published_at DESC')
     @index_title = BlogKit.instance.settings['blog_name'] || 'Blog'
 
     respond_to do |format|
@@ -26,7 +26,7 @@ class BlogPostsController < ApplicationController
 		@blog_tags = BlogTag.find_all_by_tag(params[:id])
 		
 		if @blog_tags.size > 0
-	    @blog_posts = BlogPost.published.page(params[:page])#, :conditions => ['id IN (?)', @blog_tags.map(&:blog_post_id)], :per_page => 5, :order => 'published_at DESC')
+	    @blog_posts = BlogPost.published.page(params[:page]).per(5).order('published_at DESC')#, :conditions => ['id IN (?)', @blog_tags.map(&:blog_post_id)], :per_page => 5, :order => 'published_at DESC')
 		else
 			@blog_posts = []
 		end
@@ -39,7 +39,7 @@ class BlogPostsController < ApplicationController
 	end
 
   def drafts
-    @blog_posts = BlogPost.drafts.page(params[:page])#, :order => 'updated_at DESC')
+    @blog_posts = BlogPost.drafts.page(params[:page]).order('updated_at DESC')#, :order => 'updated_at DESC')
 
     respond_to do |format|
       format.html # index.html.erb
@@ -50,7 +50,7 @@ class BlogPostsController < ApplicationController
   def show
     @blog_post = BlogPost.find(params[:id])
 		@blog_comment = @blog_post.blog_comments.new
-		@blog_comments = @blog_post.blog_comments.page(params[:page])#, :order => 'created_at DESC')
+		@blog_comments = @blog_post.blog_comments.page(params[:page]).order('created_at DESC')#, :order => 'created_at DESC')
 
     respond_to do |format|
       format.html # show.html.erb
