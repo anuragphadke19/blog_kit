@@ -26,7 +26,7 @@ class BlogPostsController < ApplicationController
 		@blog_tags = BlogTag.find_all_by_tag(params[:id])
 		
 		if @blog_tags.size > 0
-	    @blog_posts = BlogPost.published.page(params[:page]).per(5).order('published_at DESC')#, :conditions => ['id IN (?)', @blog_tags.map(&:blog_post_id)], :per_page => 5, :order => 'published_at DESC')
+	    @blog_posts = BlogPost.published.where('id IN (?)', @blog_tags.map(&:blog_post_id)).page(params[:page]).per(5).order('published_at DESC')#, :conditions => ['id IN (?)', @blog_tags.map(&:blog_post_id)], :per_page => 5, :order => 'published_at DESC')
 		else
 			@blog_posts = []
 		end
@@ -60,7 +60,8 @@ class BlogPostsController < ApplicationController
 
   def new
     @blog_post = BlogPost.new
-
+    @blog_post.blog_images.build
+    
     respond_to do |format|
       format.html # new.html.erb
       format.xml  { render :xml => @blog_post }

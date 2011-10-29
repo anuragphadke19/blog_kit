@@ -26,6 +26,7 @@ Additionally:
 
 + Use Kaminari instead of will_paginate for pagination
 + Use Devise for authentication (use authenticate_user! instead of require_user)
++ Fixed a bunch of stuff for image upload and the tag link
 
 
 Coming Soon:
