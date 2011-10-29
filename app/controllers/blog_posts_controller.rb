@@ -60,7 +60,6 @@ class BlogPostsController < ApplicationController
 
   def new
     @blog_post = BlogPost.new
-    @blog_post.blog_images.build
     
     respond_to do |format|
       format.html # new.html.erb
