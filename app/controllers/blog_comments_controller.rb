@@ -21,7 +21,7 @@ class BlogCommentsController < ApplicationController
         format.xml  { render :xml => @blog_comment, :status => :created, :location => @blog_comment }
       else
         format.html do
-					@blog_comments = @blog_post.blog_comments.paginate(:page => params[:page], :order => 'created_at DESC')
+					@blog_comments = @blog_post.blog_comments.page(params[:page]).order(:created_at)
 					render :template => '../views/blog_posts/show.html.erb'
 				end
         format.xml  { render :xml => @blog_comment.errors, :status => :unprocessable_entity }
