@@ -10,15 +10,6 @@
 		<% end %>
 	</h1>
 
-	<p class="blogPostPostedAt">
-		Posted
-		<% if blog_post.show_user? %>
-			By <span class="blogPoster"><%= blog_post.user_name %></span>
-		<% end %>
-		on 
-		<span class="blogPostDate"><%= blog_post.formatted_updated_at %></span>
-	</p>
-
 	<div class="blogPostBody">
 		<%= blog_post.parsed_body %>
 	</div>
