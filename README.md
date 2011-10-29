@@ -37,7 +37,7 @@ Install
 
 in rails:
 
-    ./script/plugin install git://github.com/ryanstout/blog_kit.git
+    rails plugin install git://github.com/anuragphadke19/blog_kit.git
 
 The plugin will then copy in migrations for the BlogPost and BlogComment models.  Install the tables with:
 
