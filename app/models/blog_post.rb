@@ -33,7 +33,7 @@ class BlogPost < ActiveRecord::Base
 	end
 
 	def tags_with_links
-		html = self.tags.split(/,/).collect {|t| "<a href=\"/blog_posts/#{t.strip}/tag\">#{t.strip}</a>" }.join(', ')
+		html = self.tags.split(/,/).collect {|t| "<a href=\"/blog/#{t.strip}/tag\">#{t.strip}</a>" }.join(', ')
 		return html.html_safe
 	end
 	
