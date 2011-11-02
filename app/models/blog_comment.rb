@@ -1,5 +1,6 @@
 class BlogComment < ActiveRecord::Base
 	include BlogKitModelHelper
+	include BlogHelper
 	include ActionView::Helpers
 	
 	unloadable
