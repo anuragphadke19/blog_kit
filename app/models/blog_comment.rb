@@ -1,5 +1,6 @@
 class BlogComment < ActiveRecord::Base
 	include BlogKitModelHelper
+	include ActionView::Helpers
 	
 	unloadable
 	
@@ -29,8 +30,10 @@ class BlogComment < ActiveRecord::Base
 	
 	def user_name
 		name = self.user ? self.user.name : self.name
+		logger.debug (self.site_url)
 		if !self.site_url.blank?
-			return "<a href=\"#{self.site_url}\">#{name}</a>".html_safe
+			#return "<a href=\"#{self.site_url}\">#{name}</a>".html_safe
+			return (link_to name, url_with_protocol(self.site_url), :target => :blank).html_safe
 		else
 			return name
 		end

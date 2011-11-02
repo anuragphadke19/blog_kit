@@ -12,4 +12,8 @@ module BlogHelper
 		
 		return "<div class=\"blogTagsList\"><ul>#{html.join}</ul></div>"
 	end
+	
+	def url_with_protocol(url)
+      /^http/.match(url) ? url : "http://#{url}"
+  end
 end
