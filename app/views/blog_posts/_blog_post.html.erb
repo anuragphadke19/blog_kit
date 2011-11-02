@@ -1,13 +1,15 @@
+
 <div class="blogPost">
-	<div class="blogUserImage">
-		<%= blog_post.user_image_tag %>
-	</div>
+	
 
 	<h1 class="blogPostTitle">
 		<%= link_to(h(blog_post.title), blog_post) %>
 		<% if !blog_post.published? %>
 			[Draft]
 		<% end %>
+		<div class="blogPublishedAt">
+			Published on <%= blog_post.formatted_updated_at %>
+		</div>
 	</h1>
 
 	<div class="blogPostBody">

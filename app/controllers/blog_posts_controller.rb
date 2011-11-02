@@ -51,6 +51,7 @@ class BlogPostsController < ApplicationController
     @blog_post = BlogPost.find(params[:id])
 		@blog_comment = @blog_post.blog_comments.new
 		@blog_comments = @blog_post.blog_comments.page(params[:page]).order('created_at DESC')#, :order => 'created_at DESC')
+		@index_title = BlogKit.instance.settings['blog_name'] || 'Blog'
 
     respond_to do |format|
       format.html # show.html.erb

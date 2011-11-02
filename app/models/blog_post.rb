@@ -114,7 +114,7 @@ class BlogPost < ActiveRecord::Base
 	end
 	
 	def formatted_updated_at
-		self.updated_at.strftime(BlogKit.instance.settings['post_date_format'] || '%m/%d/%Y at %I:%M%p')
+		self.updated_at.localtime.strftime(BlogKit.instance.settings['post_date_format'] || '%m/%d/%Y at %I:%M%p')
 	end
 	
 	# Provide SEO Friendly URL's

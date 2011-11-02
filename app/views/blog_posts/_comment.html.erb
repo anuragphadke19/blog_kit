@@ -1,8 +1,4 @@
 <div class="blogComment<% if comment.user && comment.user.respond_to?(:admin?) && comment.user.admin? %> blogCommentAdmin<% end %>">
-	<div class="blogUserImage">
-		<%= comment.user_image_tag %>
-	</div>
-	
 	<p class="blogCommentPostedAt">
 		By <span class="blogPoster"><%= comment.user_name %></span>
 		on 
