@@ -2,7 +2,7 @@
 <div class="blogPost">
 	
 
-	<h1 class="blogPostTitle">
+	<div class="blogPostTitle">
 		<%= link_to(h(blog_post.title), blog_post) %>
 		<% if !blog_post.published? %>
 			[Draft]
@@ -10,7 +10,7 @@
 		<div class="blogPublishedAt">
 			Published on <%= blog_post.formatted_updated_at %>
 		</div>
-	</h1>
+	</div>
 
 	<div class="blogPostBody">
 		<%= blog_post.parsed_body %>
